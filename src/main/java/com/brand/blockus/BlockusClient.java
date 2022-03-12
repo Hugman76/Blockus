@@ -3,6 +3,7 @@ package com.brand.blockus;
 import com.brand.blockus.compatibility.content.promenade.BlockusPromenadeBlocks;
 import com.brand.blockus.content.BlockusBlocks;
 import com.brand.blockus.content.types.BSSWTypes;
+import com.brand.blockus.content.types.WoodTypesNB;
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import com.terraformersmc.terraform.sign.SpriteIdentifierRegistry;
 import net.fabricmc.api.ClientModInitializer;
@@ -63,8 +64,8 @@ public class BlockusClient implements ClientModInitializer {
             BlockusBlocks.POTTED_WHITE_OAK_SAPLING,
             BlockusBlocks.OBSIDIAN_REINFORCED_DOOR,
             BlockusBlocks.OBSIDIAN_REINFORCED_TRAPDOOR,
-            BlockusBlocks.CHARRED_DOOR,
-            BlockusBlocks.CHARRED_TRAPDOOR,
+            WoodTypesNB.CHARRED.door,
+            WoodTypesNB.CHARRED.trapdoor,
             BlockusBlocks.WOODEN_FRAME,
             BlockusBlocks.IRON_GATE,
             BlockusBlocks.GOLDEN_GATE,

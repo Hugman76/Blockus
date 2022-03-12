@@ -3,9 +3,7 @@ package com.brand.blockus.data.provider;
 
 import com.brand.blockus.content.BlockusBlocks;
 import com.brand.blockus.content.BlockusItems;
-import com.brand.blockus.content.types.AsphaltTypes;
-import com.brand.blockus.content.types.BSSTypes;
-import com.brand.blockus.content.types.BSSWTypes;
+import com.brand.blockus.content.types.*;
 import com.brand.blockus.data.family.BlockusBlockFamilies;
 import com.brand.blockus.tag.BlockusItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -38,6 +36,18 @@ public class BlockusRecipesProvider extends FabricRecipesProvider {
         for (BSSTypes bssType : BSSTypes.values()) {
             BlockusRecipesProvider.offerStairsRecipe(exporter, bssType.stairs, bssType.block);
             RecipesProvider.offerSlabRecipe(exporter, bssType.slab, bssType.block);
+        }
+
+        for (TimberFrameTypesB timberFrameType : TimberFrameTypesB.values()) {
+            ShapedRecipeJsonFactory.create(timberFrameType.block).input('#',  Items.PAPER).input('X',  timberFrameType.base).pattern("#X").pattern("X#").group("timber_frame").criterion(hasItem(timberFrameType.base), conditionsFromItem(timberFrameType.base)).offerTo(exporter);
+            ShapedRecipeJsonFactory.create(timberFrameType.diagonal).input('#', timberFrameType.block).pattern("##").pattern("##").group("diagonal_timber_frame").criterion(hasItem(timberFrameType.block), conditionsFromItem(timberFrameType.block)).offerTo(exporter);
+            ShapedRecipeJsonFactory.create(timberFrameType.cross).input('#', timberFrameType.diagonal).pattern("##").pattern("##").group("cross_timber_frame").criterion(hasItem(timberFrameType.diagonal), conditionsFromItem(timberFrameType.diagonal)).offerTo(exporter);
+        }
+
+        for (TimberFrameTypesNB timberFrameType : TimberFrameTypesNB.values()) {
+            ShapedRecipeJsonFactory.create(timberFrameType.block).input('#',  Items.PAPER).input('X',  timberFrameType.base).pattern("#X").pattern("X#").group("timber_frame").criterion(hasItem(timberFrameType.base), conditionsFromItem(timberFrameType.base)).offerTo(exporter);
+            ShapedRecipeJsonFactory.create(timberFrameType.diagonal).input('#', timberFrameType.block).pattern("##").pattern("##").group("diagonal_timber_frame").criterion(hasItem(timberFrameType.block), conditionsFromItem(timberFrameType.block)).offerTo(exporter);
+            ShapedRecipeJsonFactory.create(timberFrameType.cross).input('#', timberFrameType.diagonal).pattern("##").pattern("##").group("cross_timber_frame").criterion(hasItem(timberFrameType.diagonal), conditionsFromItem(timberFrameType.diagonal)).offerTo(exporter);
         }
 
         for (AsphaltTypes asphaltType : AsphaltTypes.values()) {
@@ -1057,13 +1067,13 @@ public class BlockusRecipesProvider extends FabricRecipesProvider {
         offerPhantomPurpurRecipe(exporter, BlockusBlocks.PHANTOM_PURPUR_DECORATED_END_STONE, BlockusBlocks.PURPUR_DECORATED_END_STONE);
 
         // Wood
-        offerPlanksRecipe(exporter, BlockusBlocks.WHITE_OAK_PLANKS, BlockusItemTags.WHITE_OAK_LOGS);
+        offerPlanksRecipe(exporter, WoodTypesB.WHITE_OAK.planks, BlockusItemTags.WHITE_OAK_LOGS);
         offerBarkBlockRecipe(exporter, BlockusBlocks.WHITE_OAK_WOOD, BlockusBlocks.WHITE_OAK_LOG);
-        ShapedRecipeJsonFactory.create(BlockusBlocks.BAMBOO_PLANKS).input('#', Items.BAMBOO).pattern("##").pattern("##").criterion(hasItem(Items.BAMBOO), conditionsFromItem(Items.BAMBOO)).offerTo(exporter);
-        offerBoatRecipe(exporter, BlockusItems.WHITE_OAK_BOAT, BlockusBlocks.WHITE_OAK_PLANKS);
-        offerBoatRecipe(exporter, BlockusItems.BAMBOO_BOAT, BlockusBlocks.BAMBOO_PLANKS);
-        offerBoatRecipe(exporter, BlockusItems.CHARRED_BOAT, BlockusBlocks.CHARRED_PLANKS);
-        CookingRecipeJsonFactory.createSmelting(Ingredient.fromTag(BlockusItemTags.PLANKS_THAT_BURN), BlockusBlocks.CHARRED_PLANKS, 0.1F, 200).criterion("has_bricks", conditionsFromItem(Blocks.BRICKS)).offerTo(exporter);
+        ShapedRecipeJsonFactory.create(WoodTypesB.BAMBOO.planks).input('#', Items.BAMBOO).pattern("##").pattern("##").criterion(hasItem(Items.BAMBOO), conditionsFromItem(Items.BAMBOO)).offerTo(exporter);
+        offerBoatRecipe(exporter, WoodTypesB.WHITE_OAK.boat, WoodTypesB.WHITE_OAK.planks);
+        offerBoatRecipe(exporter, WoodTypesB.BAMBOO.boat, WoodTypesB.BAMBOO.planks);
+        offerBoatRecipe(exporter, WoodTypesNB.CHARRED.boat, WoodTypesNB.CHARRED.planks);
+        CookingRecipeJsonFactory.createSmelting(Ingredient.fromTag(BlockusItemTags.PLANKS_THAT_BURN), WoodTypesNB.CHARRED.planks, 0.1F, 200).criterion("has_bricks", conditionsFromItem(Blocks.BRICKS)).offerTo(exporter);
 
         offerSmallLogsRecipe(exporter, BlockusBlocks.OAK_SMALL_LOGS, Blocks.OAK_LOG);
         offerSmallLogsRecipe(exporter, BlockusBlocks.SPRUCE_SMALL_LOGS, Blocks.SPRUCE_LOG);
@@ -1074,18 +1084,6 @@ public class BlockusRecipesProvider extends FabricRecipesProvider {
         offerSmallLogsRecipe(exporter, BlockusBlocks.WARPED_SMALL_STEMS, Blocks.WARPED_STEM);
         offerSmallLogsRecipe(exporter, BlockusBlocks.CRIMSON_SMALL_STEMS, Blocks.CRIMSON_STEM);
         offerSmallLogsRecipe(exporter, BlockusBlocks.WHITE_OAK_SMALL_LOGS, BlockusBlocks.WHITE_OAK_LOG);
-
-        offerTimberFrameRecipe(exporter, BlockusBlocks.OAK_TIMBER_FRAME, Blocks.OAK_PLANKS, BlockusBlocks.OAK_DIAGONAL_TIMBER_FRAME, BlockusBlocks.OAK_CROSS_TIMBER_FRAME);
-        offerTimberFrameRecipe(exporter, BlockusBlocks.SPRUCE_TIMBER_FRAME, Blocks.SPRUCE_PLANKS, BlockusBlocks.SPRUCE_DIAGONAL_TIMBER_FRAME, BlockusBlocks.SPRUCE_CROSS_TIMBER_FRAME);
-        offerTimberFrameRecipe(exporter, BlockusBlocks.BIRCH_TIMBER_FRAME, Blocks.BIRCH_PLANKS, BlockusBlocks.BIRCH_DIAGONAL_TIMBER_FRAME, BlockusBlocks.BIRCH_CROSS_TIMBER_FRAME);
-        offerTimberFrameRecipe(exporter, BlockusBlocks.JUNGLE_TIMBER_FRAME, Blocks.JUNGLE_PLANKS, BlockusBlocks.JUNGLE_DIAGONAL_TIMBER_FRAME, BlockusBlocks.JUNGLE_CROSS_TIMBER_FRAME);
-        offerTimberFrameRecipe(exporter, BlockusBlocks.ACACIA_TIMBER_FRAME, Blocks.ACACIA_PLANKS , BlockusBlocks.ACACIA_DIAGONAL_TIMBER_FRAME, BlockusBlocks.ACACIA_CROSS_TIMBER_FRAME);
-        offerTimberFrameRecipe(exporter, BlockusBlocks.DARK_OAK_TIMBER_FRAME, Blocks.DARK_OAK_PLANKS, BlockusBlocks.DARK_OAK_DIAGONAL_TIMBER_FRAME, BlockusBlocks.DARK_OAK_CROSS_TIMBER_FRAME);
-        offerTimberFrameRecipe(exporter, BlockusBlocks.WARPED_TIMBER_FRAME, Blocks.WARPED_PLANKS, BlockusBlocks.WARPED_DIAGONAL_TIMBER_FRAME, BlockusBlocks.WARPED_CROSS_TIMBER_FRAME);
-        offerTimberFrameRecipe(exporter, BlockusBlocks.CRIMSON_TIMBER_FRAME, Blocks.CRIMSON_PLANKS, BlockusBlocks.CRIMSON_DIAGONAL_TIMBER_FRAME, BlockusBlocks.CRIMSON_CROSS_TIMBER_FRAME);
-        offerTimberFrameRecipe(exporter, BlockusBlocks.BAMBOO_TIMBER_FRAME, BlockusBlocks.BAMBOO_PLANKS, BlockusBlocks.BAMBOO_DIAGONAL_TIMBER_FRAME, BlockusBlocks.BAMBOO_CROSS_TIMBER_FRAME);
-        offerTimberFrameRecipe(exporter, BlockusBlocks.CHARRED_TIMBER_FRAME, BlockusBlocks.CHARRED_PLANKS, BlockusBlocks.CHARRED_DIAGONAL_TIMBER_FRAME, BlockusBlocks.CHARRED_CROSS_TIMBER_FRAME);
-        offerTimberFrameRecipe(exporter, BlockusBlocks.WHITE_OAK_TIMBER_FRAME, BlockusBlocks.WHITE_OAK_PLANKS, BlockusBlocks.WHITE_OAK_DIAGONAL_TIMBER_FRAME, BlockusBlocks.WHITE_OAK_CROSS_TIMBER_FRAME);
 
         // Small Hedges
         offerSmallHedgesRecipe(exporter, BlockusBlocks.OAK_SMALL_HEDGE, Blocks.OAK_LEAVES);
@@ -1928,12 +1926,6 @@ public class BlockusRecipesProvider extends FabricRecipesProvider {
 
     public static void offerSmallHedgesRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
         ShapedRecipeJsonFactory.create(output).input('#',  input).pattern("###").pattern("###").group("small_hedge").criterion(hasItem(input), conditionsFromItem(input)).offerTo(exporter);
-    }
-
-    public static void offerTimberFrameRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible planks, ItemConvertible output_diagonal, ItemConvertible output_cross) {
-        ShapedRecipeJsonFactory.create(output).input('#',  Items.PAPER).input('X',  planks).pattern("#X").pattern("X#").group("timber_frame").criterion(hasItem(planks), conditionsFromItem(planks)).offerTo(exporter);
-        ShapedRecipeJsonFactory.create(output_diagonal).input('#', output).pattern("##").pattern("##").group("diagonal_timber_frame").criterion(hasItem(output), conditionsFromItem(output)).offerTo(exporter);
-        ShapedRecipeJsonFactory.create(output_cross).input('#', output_diagonal).pattern("##").pattern("##").group("cross_timber_frame").criterion(hasItem(output_diagonal), conditionsFromItem(output_diagonal)).offerTo(exporter);
     }
 
     public static CraftingRecipeJsonFactory createEnclosedRecipe(ItemConvertible output, Ingredient input, ItemConvertible center) {

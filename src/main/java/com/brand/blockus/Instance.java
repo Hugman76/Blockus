@@ -3,6 +3,8 @@ package com.brand.blockus;
 import com.brand.blockus.content.BlockusBlocks;
 import com.brand.blockus.content.BlockusItems;
 import com.brand.blockus.content.types.BSSTypes;
+import com.brand.blockus.content.types.TimberFrameTypesB;
+import com.brand.blockus.content.types.WoodTypesB;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
@@ -49,31 +51,11 @@ public class Instance {
         FlammableBlockRegistry.getDefaultInstance().add(BSSTypes.THATCH.stairs, 60, 20);
 
         // timber frames
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.ACACIA_CROSS_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.ACACIA_DIAGONAL_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.ACACIA_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BAMBOO_CROSS_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BAMBOO_DIAGONAL_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BAMBOO_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BIRCH_CROSS_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BIRCH_DIAGONAL_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BIRCH_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.DARK_OAK_CROSS_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.DARK_OAK_DIAGONAL_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.DARK_OAK_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.JUNGLE_CROSS_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.JUNGLE_DIAGONAL_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.JUNGLE_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.OAK_CROSS_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.OAK_DIAGONAL_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.OAK_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.SPRUCE_CROSS_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.SPRUCE_DIAGONAL_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.SPRUCE_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_CROSS_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_DIAGONAL_TIMBER_FRAME, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_TIMBER_FRAME, 5, 20);
-
+        for (TimberFrameTypesB timberFrameType : TimberFrameTypesB.values()) {
+            FlammableBlockRegistry.getDefaultInstance().add(timberFrameType.block, 5, 20);
+            FlammableBlockRegistry.getDefaultInstance().add(timberFrameType.diagonal, 5, 20);
+            FlammableBlockRegistry.getDefaultInstance().add(timberFrameType.cross, 5, 20);
+        }
 
         // patterned wools
         FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_PATTERNED_WOOL, 30, 60);
@@ -94,18 +76,16 @@ public class Instance {
         FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BLACK_PATTERNED_WOOL, 30, 60);
 
         // bamboo
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BAMBOO_PLANKS, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BAMBOO_SLAB, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BAMBOO_STAIRS, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BAMBOO_FENCE, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.BAMBOO_FENCE_GATE, 5, 20);
+
+        for (WoodTypesB woodType : WoodTypesB.values()) {
+            FlammableBlockRegistry.getDefaultInstance().add(woodType.planks, 5, 20);
+            FlammableBlockRegistry.getDefaultInstance().add(woodType.stairs, 5, 20);
+            FlammableBlockRegistry.getDefaultInstance().add(woodType.slab, 5, 20);
+            FlammableBlockRegistry.getDefaultInstance().add(woodType.fence, 5, 20);
+            FlammableBlockRegistry.getDefaultInstance().add(woodType.fence_gate, 5, 20);
+        }
 
         // white oak
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_PLANKS, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_SLAB, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_STAIRS, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_FENCE, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_FENCE_GATE, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_LOG, 5, 5);
         FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.STRIPPED_WHITE_OAK_LOG, 5, 5);
         FlammableBlockRegistry.getDefaultInstance().add(BlockusBlocks.WHITE_OAK_WOOD, 5, 5);
@@ -138,31 +118,12 @@ public class Instance {
         FuelRegistry.INSTANCE.add(BlockusBlocks.PAPER_BLOCK, 400);
 
         // timber frames
-        FuelRegistry.INSTANCE.add(BlockusBlocks.ACACIA_CROSS_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.ACACIA_DIAGONAL_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.ACACIA_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BAMBOO_CROSS_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BAMBOO_DIAGONAL_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BAMBOO_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BIRCH_CROSS_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BIRCH_DIAGONAL_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BIRCH_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.DARK_OAK_CROSS_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.DARK_OAK_DIAGONAL_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.DARK_OAK_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.JUNGLE_CROSS_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.JUNGLE_DIAGONAL_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.JUNGLE_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.OAK_CROSS_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.OAK_DIAGONAL_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.OAK_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.SPRUCE_CROSS_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.SPRUCE_DIAGONAL_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.SPRUCE_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_CROSS_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_DIAGONAL_TIMBER_FRAME, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_TIMBER_FRAME, 300);
 
+        for (TimberFrameTypesB timberFrameType : TimberFrameTypesB.values()) {
+            FuelRegistry.INSTANCE.add(timberFrameType.block, 300);
+            FuelRegistry.INSTANCE.add(timberFrameType.diagonal, 300);
+            FuelRegistry.INSTANCE.add(timberFrameType.cross, 300);
+        }
 
         // patterned wools
         FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_PATTERNED_WOOL, 100);
@@ -182,35 +143,25 @@ public class Instance {
         FuelRegistry.INSTANCE.add(BlockusBlocks.RED_PATTERNED_WOOL, 100);
         FuelRegistry.INSTANCE.add(BlockusBlocks.BLACK_PATTERNED_WOOL, 100);
 
-        // bamboo
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BAMBOO_PLANKS, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BAMBOO_SLAB, 150);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BAMBOO_STAIRS, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BAMBOO_FENCE, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BAMBOO_FENCE_GATE, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BAMBOO_DOOR, 200);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BAMBOO_TRAPDOOR, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BAMBOO_PRESSURE_PLATE, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.BAMBOO_BUTTON, 100);
-        FuelRegistry.INSTANCE.add(BlockusItems.BAMBOO_BOAT, 1200);
-        FuelRegistry.INSTANCE.add(BlockusItems.BAMBOO_SIGN, 200);
+        for (WoodTypesB woodType : WoodTypesB.values()) {
+            FuelRegistry.INSTANCE.add(woodType.planks, 300);
+            FuelRegistry.INSTANCE.add(woodType.stairs, 300);
+            FuelRegistry.INSTANCE.add(woodType.slab, 150);
+            FuelRegistry.INSTANCE.add(woodType.fence, 300);
+            FuelRegistry.INSTANCE.add(woodType.fence_gate, 300);
+            FuelRegistry.INSTANCE.add(woodType.door, 200);
+            FuelRegistry.INSTANCE.add(woodType.trapdoor, 300);
+            FuelRegistry.INSTANCE.add(woodType.pressure_plate, 300);
+            FuelRegistry.INSTANCE.add(woodType.button, 100);
+            FuelRegistry.INSTANCE.add(woodType.boat, 1200);
+            FuelRegistry.INSTANCE.add(woodType.sign, 200);
+        }
 
         // white oak
         FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_LOG, 300);
         FuelRegistry.INSTANCE.add(BlockusBlocks.STRIPPED_WHITE_OAK_LOG, 300);
         FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_WOOD, 300);
         FuelRegistry.INSTANCE.add(BlockusBlocks.STRIPPED_WHITE_OAK_LOG, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_PLANKS, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_SLAB, 150);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_STAIRS, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_FENCE, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_FENCE_GATE, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_DOOR, 200);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_TRAPDOOR, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_PRESSURE_PLATE, 300);
-        FuelRegistry.INSTANCE.add(BlockusBlocks.WHITE_OAK_BUTTON, 100);
-        FuelRegistry.INSTANCE.add(BlockusItems.WHITE_OAK_BOAT, 1200);
-        FuelRegistry.INSTANCE.add(BlockusItems.WHITE_OAK_SIGN, 200);
 
         // small logs
         FuelRegistry.INSTANCE.add(BlockusBlocks.OAK_SMALL_LOGS, 300);

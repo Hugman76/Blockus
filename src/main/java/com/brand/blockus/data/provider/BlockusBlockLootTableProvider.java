@@ -1,9 +1,7 @@
 package com.brand.blockus.data.provider;
 
 import com.brand.blockus.content.BlockusBlocks;
-import com.brand.blockus.content.types.AsphaltTypes;
-import com.brand.blockus.content.types.BSSTypes;
-import com.brand.blockus.content.types.BSSWTypes;
+import com.brand.blockus.content.types.*;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTablesProvider;
 import net.minecraft.data.server.BlockLootTableGenerator;
@@ -31,12 +29,49 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTablesProvider
             this.addDrop(bssType.slab, BlockLootTableGenerator::slabDrops);
         }
 
+        for (WoodTypesB woodType : WoodTypesB.values()) {
+            this.addDrop(woodType.planks);
+            this.addDrop(woodType.stairs);
+            this.addDrop(woodType.slab);
+            this.addDrop(woodType.fence);
+            this.addDrop(woodType.fence_gate);
+            this.addDrop(woodType.door);
+            this.addDrop(woodType.trapdoor);
+            this.addDrop(woodType.pressure_plate);
+            this.addDrop(woodType.button);
+            this.addDrop(woodType.standing_sign);
+        }
+
+        for (WoodTypesNB woodType : WoodTypesNB.values()) {
+            this.addDrop(woodType.planks);
+            this.addDrop(woodType.stairs);
+            this.addDrop(woodType.slab);
+            this.addDrop(woodType.fence);
+            this.addDrop(woodType.fence_gate);
+            this.addDrop(woodType.door);
+            this.addDrop(woodType.trapdoor);
+            this.addDrop(woodType.pressure_plate);
+            this.addDrop(woodType.button);
+            this.addDrop(woodType.standing_sign);
+        }
+
+        for (TimberFrameTypesB timberFrameType : TimberFrameTypesB.values()) {
+            this.addDrop(timberFrameType.block);
+            this.addDrop(timberFrameType.diagonal);
+            this.addDrop(timberFrameType.cross);
+        }
+
+        for (TimberFrameTypesNB timberFrameType: TimberFrameTypesNB.values()) {
+            this.addDrop(timberFrameType.block);
+            this.addDrop(timberFrameType.diagonal);
+            this.addDrop(timberFrameType.cross);
+        }
+
         for (AsphaltTypes asphaltType : AsphaltTypes.values()) {
             this.addDrop(asphaltType.block);
             this.addDrop(asphaltType.stairs);
             this.addDrop(asphaltType.slab, BlockLootTableGenerator::slabDrops);
         }
-
 
         // Amethyst
         this.addDrop(BlockusBlocks.POLISHED_AMETHYST);
@@ -50,27 +85,11 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTablesProvider
         this.addDrop(BlockusBlocks.AMETHYST_PILLAR);
 
         // Other
-        this.addDrop(BlockusBlocks.ACACIA_CROSS_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.ACACIA_DIAGONAL_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.ACACIA_SMALL_LOGS);
-        this.addDrop(BlockusBlocks.ACACIA_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.ANDESITE_CIRCLE_PAVEMENT);
         this.addDrop(BlockusBlocks.APPLE_CRATE);
-        this.addDrop(BlockusBlocks.BAMBOO_BUTTON);
-        this.addDrop(BlockusBlocks.BAMBOO_CROSS_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.BAMBOO_DIAGONAL_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.BAMBOO_FENCE);
-        this.addDrop(BlockusBlocks.BAMBOO_FENCE_GATE);
-        this.addDrop(BlockusBlocks.BAMBOO_PLANKS);
-        this.addDrop(BlockusBlocks.BAMBOO_PRESSURE_PLATE);
-        this.addDrop(BlockusBlocks.BAMBOO_STAIRS);
-        this.addDrop(BlockusBlocks.BAMBOO_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.BAMBOO_TRAPDOOR);
         this.addDrop(BlockusBlocks.BEETROOT_CRATE);
-        this.addDrop(BlockusBlocks.BIRCH_CROSS_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.BIRCH_DIAGONAL_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.BIRCH_SMALL_LOGS);
-        this.addDrop(BlockusBlocks.BIRCH_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.BLACK_BLUE_COLORED_TILES);
         this.addDrop(BlockusBlocks.BLACK_COLORED_TILES);
         this.addDrop(BlockusBlocks.BLACK_CONCRETE_PILLAR);
@@ -113,17 +132,7 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTablesProvider
         this.addDrop(BlockusBlocks.CAUTION_BARRIER);
         this.addDrop(BlockusBlocks.CAUTION_BLOCK);
         this.addDrop(BlockusBlocks.CHARCOAL_BLOCK);
-        this.addDrop(BlockusBlocks.CHARRED_BUTTON);
-        this.addDrop(BlockusBlocks.CHARRED_CROSS_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.CHARRED_DIAGONAL_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.CHARRED_FENCE);
-        this.addDrop(BlockusBlocks.CHARRED_FENCE_GATE);
         this.addDrop(BlockusBlocks.CHARRED_NETHER_BRICK_PILLAR);
-        this.addDrop(BlockusBlocks.CHARRED_PLANKS);
-        this.addDrop(BlockusBlocks.CHARRED_PRESSURE_PLATE);
-        this.addDrop(BlockusBlocks.CHARRED_STAIRS);
-        this.addDrop(BlockusBlocks.CHARRED_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.CHARRED_TRAPDOOR);
         this.addDrop(BlockusBlocks.CHISELED_ANDESITE_BRICKS);
         this.addDrop(BlockusBlocks.CHISELED_BLACK_CONCRETE);
         this.addDrop(BlockusBlocks.CHISELED_BLUE_CONCRETE);
@@ -171,11 +180,8 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTablesProvider
         this.addDrop(BlockusBlocks.CRACKED_OBSIDIAN_BRICKS);
         this.addDrop(BlockusBlocks.CRACKED_POLISHED_BASALT_BRICKS);
         this.addDrop(BlockusBlocks.CRACKED_TUFF_BRICKS);
-        this.addDrop(BlockusBlocks.CRIMSON_CROSS_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.CRIMSON_DIAGONAL_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.CRIMSON_SMALL_HEDGE);
         this.addDrop(BlockusBlocks.CRIMSON_SMALL_STEMS);
-        this.addDrop(BlockusBlocks.CRIMSON_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.CUT_SOUL_SANDSTONE);
         this.addDrop(BlockusBlocks.CYAN_COLORED_TILES);
         this.addDrop(BlockusBlocks.CYAN_CONCRETE_PILLAR);
@@ -186,10 +192,7 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTablesProvider
         this.addDrop(BlockusBlocks.CYAN_REDSTONE_LAMP);
         this.addDrop(BlockusBlocks.CYAN_REDSTONE_LAMP_LIT);
         this.addDrop(BlockusBlocks.CYAN_WHITE_COLORED_TILES);
-        this.addDrop(BlockusBlocks.DARK_OAK_CROSS_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.DARK_OAK_DIAGONAL_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.DARK_OAK_SMALL_LOGS);
-        this.addDrop(BlockusBlocks.DARK_OAK_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.DARK_PRISMARINE_PILLAR);
         this.addDrop(BlockusBlocks.DEEPSLATE_CIRCLE_PAVEMENT);
         this.addDrop(BlockusBlocks.DEEPSLATE_PILLAR);
@@ -231,10 +234,7 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTablesProvider
         this.addDrop(BlockusBlocks.GREEN_REDSTONE_LAMP);
         this.addDrop(BlockusBlocks.GREEN_REDSTONE_LAMP_LIT);
         this.addDrop(BlockusBlocks.GREEN_WHITE_COLORED_TILES);
-        this.addDrop(BlockusBlocks.JUNGLE_CROSS_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.JUNGLE_DIAGONAL_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.JUNGLE_SMALL_LOGS);
-        this.addDrop(BlockusBlocks.JUNGLE_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.LANTERN_BLOCK);
         this.addDrop(BlockusBlocks.LAPIS_DECORATED_RED_SANDSTONE);
         this.addDrop(BlockusBlocks.LAPIS_DECORATED_SANDSTONE);
@@ -313,10 +313,7 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTablesProvider
         this.addDrop(BlockusBlocks.NETHER_BRICK_PILLAR);
         this.addDrop(BlockusBlocks.NETHERITE_STAIRS);
         this.addDrop(BlockusBlocks.NETHERRACK_CIRCLE_PAVEMENT);
-        this.addDrop(BlockusBlocks.OAK_DIAGONAL_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.OAK_DIAGONAL_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.OAK_SMALL_LOGS);
-        this.addDrop(BlockusBlocks.OAK_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.OBSIDIAN_CIRCLE_PAVEMENT);
         this.addDrop(BlockusBlocks.OBSIDIAN_PILLAR);
         this.addDrop(BlockusBlocks.OBSIDIAN_REINFORCED_TRAPDOOR);
@@ -430,10 +427,7 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTablesProvider
         this.addDrop(BlockusBlocks.SOUL_LANTERN_BLOCK);
         this.addDrop(BlockusBlocks.SOUL_O_LANTERN);
         this.addDrop(BlockusBlocks.SOUL_SANDSTONE_PILLAR);
-        this.addDrop(BlockusBlocks.SPRUCE_CROSS_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.SPRUCE_DIAGONAL_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.SPRUCE_SMALL_LOGS);
-        this.addDrop(BlockusBlocks.SPRUCE_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.STARS_BLOCK);
         this.addDrop(BlockusBlocks.STONE_BRICK_PILLAR);
         this.addDrop(BlockusBlocks.STONE_CIRCLE_PAVEMENT);
@@ -449,30 +443,17 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTablesProvider
         this.addDrop(BlockusBlocks.TROPICAL_FISH_CRATE);
         this.addDrop(BlockusBlocks.TUFF_CIRCLE_PAVEMENT);
         this.addDrop(BlockusBlocks.TUFF_PILLAR);
-        this.addDrop(BlockusBlocks.WARPED_CROSS_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.WARPED_DIAGONAL_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.WARPED_SMALL_HEDGE);
         this.addDrop(BlockusBlocks.WARPED_SMALL_STEMS);
-        this.addDrop(BlockusBlocks.WARPED_TIMBER_FRAME);
         this.addDrop(BlockusBlocks.WEIGHT_STORAGE_CUBE);
         this.addDrop(BlockusBlocks.WHITE_COLORED_TILES);
         this.addDrop(BlockusBlocks.WHITE_CONCRETE_PILLAR);
         this.addDrop(BlockusBlocks.WHITE_FUTURNEO_BLOCK);
         this.addDrop(BlockusBlocks.WHITE_GLAZED_TERRACOTTA_PILLAR);
         this.addDrop(BlockusBlocks.WHITE_NEON);
-        this.addDrop(BlockusBlocks.WHITE_OAK_BUTTON);
-        this.addDrop(BlockusBlocks.WHITE_OAK_CROSS_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.WHITE_OAK_DIAGONAL_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.WHITE_OAK_FENCE);
-        this.addDrop(BlockusBlocks.WHITE_OAK_FENCE_GATE);
         this.addDrop(BlockusBlocks.WHITE_OAK_LOG);
-        this.addDrop(BlockusBlocks.WHITE_OAK_PLANKS);
-        this.addDrop(BlockusBlocks.WHITE_OAK_PRESSURE_PLATE);
         this.addDrop(BlockusBlocks.WHITE_OAK_SAPLING);
         this.addDrop(BlockusBlocks.WHITE_OAK_SMALL_LOGS);
-        this.addDrop(BlockusBlocks.WHITE_OAK_STAIRS);
-        this.addDrop(BlockusBlocks.WHITE_OAK_TIMBER_FRAME);
-        this.addDrop(BlockusBlocks.WHITE_OAK_TRAPDOOR);
         this.addDrop(BlockusBlocks.WHITE_OAK_WOOD);
         this.addDrop(BlockusBlocks.WHITE_PATTERNED_WOOL);
         this.addDrop(BlockusBlocks.WHITE_REDSTONE_LAMP);
@@ -504,28 +485,19 @@ public class BlockusBlockLootTableProvider extends FabricBlockLootTablesProvider
         this.addDrop(BlockusBlocks.ZIGZAGGED_STONE_BRICKS);
         this.addDrop(BlockusBlocks.ZIGZAGGED_TEAL_NETHER_BRICKS);
         this.addDrop(BlockusBlocks.ZIGZAGGED_TUFF);
-        this.addDrop(BlockusBlocks.BAMBOO_SIGN);
-        this.addDrop(BlockusBlocks.CHARRED_SIGN);
         this.addDrop(BlockusBlocks.RAINBOW_ROSE);
         this.addDrop(BlockusBlocks.TINTED_BEVELED_GLASS);
-        this.addDrop(BlockusBlocks.WHITE_OAK_SIGN);
 
-        this.addDrop(BlockusBlocks.BAMBOO_SLAB, BlockLootTableGenerator::slabDrops);
-        this.addDrop(BlockusBlocks.CHARRED_SLAB, BlockLootTableGenerator::slabDrops);
         this.addDrop(BlockusBlocks.CUT_SOUL_SANDSTONE_SLAB, BlockLootTableGenerator::slabDrops);
         this.addDrop(BlockusBlocks.NETHERITE_SLAB, BlockLootTableGenerator::slabDrops);
         this.addDrop(BlockusBlocks.SNOW_BRICK_SLAB, BlockLootTableGenerator::slabDrops);
-        this.addDrop(BlockusBlocks.WHITE_OAK_SLAB, BlockLootTableGenerator::slabDrops);
 
-        this.addDrop(BlockusBlocks.BAMBOO_DOOR, BlockLootTableGenerator::addDoorDrop);
         this.addDrop(BlockusBlocks.BLACKSTONE_DOOR, BlockLootTableGenerator::addDoorDrop);
-        this.addDrop(BlockusBlocks.CHARRED_DOOR, BlockLootTableGenerator::addDoorDrop);
         this.addDrop(BlockusBlocks.GOLDEN_GATE, BlockLootTableGenerator::addDoorDrop);
         this.addDrop(BlockusBlocks.IRON_GATE, BlockLootTableGenerator::addDoorDrop);
         this.addDrop(BlockusBlocks.OBSIDIAN_REINFORCED_DOOR, BlockLootTableGenerator::addDoorDrop);
         this.addDrop(BlockusBlocks.PAPER_DOOR, BlockLootTableGenerator::addDoorDrop);
         this.addDrop(BlockusBlocks.STONE_DOOR, BlockLootTableGenerator::addDoorDrop);
-        this.addDrop(BlockusBlocks.WHITE_OAK_DOOR, BlockLootTableGenerator::addDoorDrop);
 
         this.addDropWithSilkTouch(BlockusBlocks.BEVELED_GLASS);
         this.addDropWithSilkTouch(BlockusBlocks.BEVELED_GLASS_PANE);

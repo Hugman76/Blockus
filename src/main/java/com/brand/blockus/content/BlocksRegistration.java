@@ -1,11 +1,7 @@
 package com.brand.blockus.content;
 
 import com.brand.blockus.Blockus;
-import com.brand.blockus.blocks.base.Barrier;
-import com.brand.blockus.blocks.base.LargeFlowerPotBlock;
-import com.brand.blockus.blocks.base.PaneBlockBase;
-import com.brand.blockus.blocks.base.SmallHedgeBlock;
-import com.brand.blockus.blocks.base.StairsBase;
+import com.brand.blockus.blocks.base.*;
 import com.brand.blockus.blocks.base.redstone.DoorBase;
 import com.brand.blockus.blocks.base.redstone.PressurePlateBase;
 import com.brand.blockus.blocks.base.redstone.StoneButtonBase;
@@ -48,7 +44,7 @@ public class BlocksRegistration {
 
 
     public static String replaceId(String id) {
-        return id.replace("lava_polished_blackstone_bricks", "lava_polished_blackstone").replace("bricks", "brick").replace("tiles", "tile").replace("_block", "");
+        return id.replace("lava_polished_blackstone_bricks", "lava_polished_blackstone").replace("bricks", "brick").replace("tiles", "tile").replace("_block", "").replace("_planks", "");
     }
 
     // Slab
@@ -178,10 +174,7 @@ public class BlocksRegistration {
         return new StainedGlassPaneBlock(color, FabricBlockSettings.copy(base));
     }
 
-    // Asphalt
-
     // Other
-
     public static FallingBlock createFallingBlock(float hardness, float resistance, Material material, BlockSoundGroup sound, MapColor color) {
         return new FallingBlock(FabricBlockSettings.of(material, color).strength(hardness, resistance).sounds(sound));
     }
@@ -219,7 +212,7 @@ public class BlocksRegistration {
     }
 
     public static Block register(String id, Block block) {
-        return register(id, block, ItemGroup.BUILDING_BLOCKS);
+        return register(id, block, Blockus.BLOCKUS_BUILDING_BLOCKS);
     }
 
     public static Block registerDecoration(String id, Block block) {
@@ -234,9 +227,6 @@ public class BlocksRegistration {
         return register(id, block, Blockus.BLOCKUS_LEGACY);
     }
 
-    public static Block registerAsphalt(String id, Block block) {
-        return register(id, block, Blockus.BLOCKUS_BUILDING_BLOCKS);
-    }
 
     public static Block registerGlint(String id, Block block) {
         return register(id, block, new GlintBlockItem(block, new Item.Settings().group(Blockus.BLOCKUS_BUILDING_BLOCKS)));

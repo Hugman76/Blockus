@@ -9,13 +9,12 @@ import com.brand.blockus.blocks.base.amethyst.AmethystWallBlock;
 import com.brand.blockus.blocks.base.asphalt.AsphaltBlock;
 import com.brand.blockus.blocks.base.redstone.DoorBase;
 import com.brand.blockus.blocks.base.redstone.FallingRedstoneBlock;
-import com.brand.blockus.blocks.base.redstone.WoodenButtonBase;
 import com.brand.blockus.blocks.blockentity.WoodenBarrelBlockEntity;
 import com.brand.blockus.blocks.generator.WhiteOakSaplingGenerator;
 import com.brand.blockus.content.types.BSSTypes;
 import com.brand.blockus.content.types.BSSWTypes;
-import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
-import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
+import com.brand.blockus.content.types.WoodTypesB;
+import com.brand.blockus.content.types.WoodTypesNB;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
@@ -242,28 +241,6 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block PURPUR_DECORATED_END_STONE = register("purpur_decorated_end_stone", new Block(FabricBlockSettings.copy(Blocks.END_STONE_BRICKS)));
     public static final Block PHANTOM_PURPUR_DECORATED_END_STONE = register("phantom_purpur_decorated_end_stone", new Block(FabricBlockSettings.copy(Blocks.END_STONE_BRICKS)));
 
-    // Bamboo Wood
-    public static final Block BAMBOO_PLANKS = register("bamboo_planks", new Block(FabricBlockSettings.of(Material.WOOD, MapColor.PALE_YELLOW).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)));
-    public static final Block BAMBOO_STAIRS = createStairs("bamboo", BAMBOO_PLANKS);
-    public static final Block BAMBOO_SLAB = createSlab("bamboo", BAMBOO_PLANKS);
-    public static final Block BAMBOO_FENCE = registerDecoration("bamboo_fence", new FenceBlock(FabricBlockSettings.copy(BAMBOO_PLANKS)));
-    public static final Block BAMBOO_FENCE_GATE = registerRedstone("bamboo_fence_gate", new FenceGateBlock(FabricBlockSettings.copy(BAMBOO_PLANKS)));
-    public static final Block BAMBOO_DOOR = registerRedstone("bamboo_door", createDoor(2.0f, 3.0f, Material.WOOD, BlockSoundGroup.WOOD, BAMBOO_PLANKS.getDefaultMapColor()));
-    public static final Block BAMBOO_TRAPDOOR = registerRedstone("bamboo_trapdoor", createTrapdoor(2.0f, 3.0f, Material.WOOD, BlockSoundGroup.WOOD, BAMBOO_PLANKS.getDefaultMapColor()));
-    public static final Block BAMBOO_SIGN = registerNoItem("bamboo_sign", new TerraformSignBlock(new Identifier(Blockus.MOD_ID, "entity/signs/bamboo"), FabricBlockSettings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD)));
-    public static final Block BAMBOO_WALL_SIGN = registerNoItem("bamboo_wall_sign", new TerraformWallSignBlock(new Identifier(Blockus.MOD_ID, "entity/signs/bamboo"), FabricBlockSettings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(BAMBOO_SIGN)));
-
-    // Charred Wood
-    public static final Block CHARRED_PLANKS = register("charred_planks", new Block(FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_GRAY).strength(2.0f, 3.0f).sounds(BlockSoundGroup.WOOD)));
-    public static final Block CHARRED_STAIRS = createStairs("charred", CHARRED_PLANKS);
-    public static final Block CHARRED_SLAB = createSlab("charred", CHARRED_PLANKS);
-    public static final Block CHARRED_FENCE = registerDecoration("charred_fence", new FenceBlock(FabricBlockSettings.copy(CHARRED_PLANKS)));
-    public static final Block CHARRED_FENCE_GATE = registerRedstone("charred_fence_gate", new FenceGateBlock(FabricBlockSettings.copy(CHARRED_PLANKS)));
-    public static final Block CHARRED_DOOR = registerRedstone("charred_door", createDoor(2.0f, 3.0f, Material.WOOD, BlockSoundGroup.WOOD, CHARRED_PLANKS.getDefaultMapColor()));
-    public static final Block CHARRED_TRAPDOOR = registerRedstone("charred_trapdoor", createTrapdoor(2.0f, 3.0f, Material.WOOD, BlockSoundGroup.WOOD, CHARRED_PLANKS.getDefaultMapColor()));
-    public static final Block CHARRED_SIGN = registerNoItem("charred_sign", new TerraformSignBlock(new Identifier(Blockus.MOD_ID, "entity/signs/charred"), FabricBlockSettings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD)));
-    public static final Block CHARRED_WALL_SIGN = registerNoItem("charred_wall_sign", new TerraformWallSignBlock(new Identifier(Blockus.MOD_ID, "entity/signs/charred"), FabricBlockSettings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(CHARRED_SIGN)));
-
     // White Oak Wood
     public static final Block WHITE_OAK_SAPLING = registerDecoration("white_oak_sapling", new SaplingBlockBase(new WhiteOakSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)));
     public static final Block POTTED_WHITE_OAK_SAPLING = registerNoItem("potted_white_oak_sapling", createPottedPlant(WHITE_OAK_SAPLING));
@@ -272,15 +249,6 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block WHITE_OAK_WOOD = register("white_oak_wood", new PillarBlock(FabricBlockSettings.copy(WHITE_OAK_LOG)));
     public static final Block STRIPPED_WHITE_OAK_WOOD = register("stripped_white_oak_wood", new PillarBlock(FabricBlockSettings.copy(WHITE_OAK_LOG)));
     public static final Block WHITE_OAK_LEAVES = registerDecoration("white_oak_leaves", new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).mapColor(MapColor.ORANGE).allowsSpawning(BlockusBlocks::canSpawnOnLeaves).suffocates(BlockusBlocks::never).blockVision(BlockusBlocks::never)));
-    public static final Block WHITE_OAK_PLANKS = register("white_oak_planks", new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).mapColor(MapColor.TERRACOTTA_WHITE)));
-    public static final Block WHITE_OAK_STAIRS = createStairs("white_oak", WHITE_OAK_PLANKS);
-    public static final Block WHITE_OAK_SLAB = createSlab("white_oak", WHITE_OAK_PLANKS);
-    public static final Block WHITE_OAK_FENCE = registerDecoration("white_oak_fence", new FenceBlock(FabricBlockSettings.copy(WHITE_OAK_PLANKS)));
-    public static final Block WHITE_OAK_FENCE_GATE = registerRedstone("white_oak_fence_gate", new FenceGateBlock(FabricBlockSettings.copy(WHITE_OAK_PLANKS)));
-    public static final Block WHITE_OAK_DOOR = registerRedstone("white_oak_door", createDoor(2.0f, 3.0f, Material.WOOD, BlockSoundGroup.WOOD, WHITE_OAK_PLANKS.getDefaultMapColor()));
-    public static final Block WHITE_OAK_TRAPDOOR = registerRedstone("white_oak_trapdoor", createTrapdoor(2.0f, 3.0f, Material.WOOD, BlockSoundGroup.WOOD, WHITE_OAK_PLANKS.getDefaultMapColor()));
-    public static final Block WHITE_OAK_SIGN = registerNoItem("white_oak_sign", new TerraformSignBlock(new Identifier(Blockus.MOD_ID, "entity/signs/white_oak"), FabricBlockSettings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD)));
-    public static final Block WHITE_OAK_WALL_SIGN = registerNoItem("white_oak_wall_sign", new TerraformWallSignBlock(new Identifier(Blockus.MOD_ID, "entity/signs/white_oak"), FabricBlockSettings.of(Material.WOOD).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(WHITE_OAK_SIGN)));
 
     // Small Logs
     public static final Block OAK_SMALL_LOGS = register("oak_small_logs", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)));
@@ -294,39 +262,6 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block WHITE_OAK_SMALL_LOGS = register("white_oak_small_logs", new PillarBlock(FabricBlockSettings.copy(WHITE_OAK_LOG)));
 
     // Timber Frames
-    public static final Block OAK_TIMBER_FRAME = register("oak_timber_frame", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
-    public static final Block OAK_DIAGONAL_TIMBER_FRAME = register("oak_diagonal_timber_frame", new OrientableBlockBase(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
-    public static final Block OAK_CROSS_TIMBER_FRAME = register("oak_cross_timber_frame", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)));
-    public static final Block BIRCH_TIMBER_FRAME = register("birch_timber_frame", new Block(FabricBlockSettings.copy(Blocks.BIRCH_PLANKS)));
-    public static final Block BIRCH_DIAGONAL_TIMBER_FRAME = register("birch_diagonal_timber_frame", new OrientableBlockBase(FabricBlockSettings.copy(Blocks.BIRCH_PLANKS)));
-    public static final Block BIRCH_CROSS_TIMBER_FRAME = register("birch_cross_timber_frame", new Block(FabricBlockSettings.copy(Blocks.BIRCH_PLANKS)));
-    public static final Block SPRUCE_TIMBER_FRAME = register("spruce_timber_frame", new Block(FabricBlockSettings.copy(Blocks.SPRUCE_PLANKS)));
-    public static final Block SPRUCE_DIAGONAL_TIMBER_FRAME = register("spruce_diagonal_timber_frame", new OrientableBlockBase(FabricBlockSettings.copy(Blocks.SPRUCE_PLANKS)));
-    public static final Block SPRUCE_CROSS_TIMBER_FRAME = register("spruce_cross_timber_frame", new Block(FabricBlockSettings.copy(Blocks.SPRUCE_PLANKS)));
-    public static final Block JUNGLE_TIMBER_FRAME = register("jungle_timber_frame", new Block(FabricBlockSettings.copy(Blocks.JUNGLE_PLANKS)));
-    public static final Block JUNGLE_DIAGONAL_TIMBER_FRAME = register("jungle_diagonal_timber_frame", new OrientableBlockBase(FabricBlockSettings.copy(Blocks.JUNGLE_PLANKS)));
-    public static final Block JUNGLE_CROSS_TIMBER_FRAME = register("jungle_cross_timber_frame", new Block(FabricBlockSettings.copy(Blocks.JUNGLE_PLANKS)));
-    public static final Block ACACIA_TIMBER_FRAME = register("acacia_timber_frame", new Block(FabricBlockSettings.copy(Blocks.ACACIA_PLANKS)));
-    public static final Block ACACIA_DIAGONAL_TIMBER_FRAME = register("acacia_diagonal_timber_frame", new OrientableBlockBase(FabricBlockSettings.copy(Blocks.ACACIA_PLANKS)));
-    public static final Block ACACIA_CROSS_TIMBER_FRAME = register("acacia_cross_timber_frame", new Block(FabricBlockSettings.copy(Blocks.ACACIA_PLANKS)));
-    public static final Block DARK_OAK_TIMBER_FRAME = register("dark_oak_timber_frame", new Block(FabricBlockSettings.copy(Blocks.DARK_OAK_PLANKS)));
-    public static final Block DARK_OAK_DIAGONAL_TIMBER_FRAME = register("dark_oak_diagonal_timber_frame", new OrientableBlockBase(FabricBlockSettings.copy(Blocks.DARK_OAK_PLANKS)));
-    public static final Block DARK_OAK_CROSS_TIMBER_FRAME = register("dark_oak_cross_timber_frame", new Block(FabricBlockSettings.copy(Blocks.DARK_OAK_PLANKS)));
-    public static final Block WARPED_TIMBER_FRAME = register("warped_timber_frame", new Block(FabricBlockSettings.copy(Blocks.WARPED_PLANKS)));
-    public static final Block WARPED_DIAGONAL_TIMBER_FRAME = register("warped_diagonal_timber_frame", new OrientableBlockBase(FabricBlockSettings.copy(Blocks.WARPED_PLANKS)));
-    public static final Block WARPED_CROSS_TIMBER_FRAME = register("warped_cross_timber_frame", new Block(FabricBlockSettings.copy(Blocks.WARPED_PLANKS)));
-    public static final Block CRIMSON_TIMBER_FRAME = register("crimson_timber_frame", new Block(FabricBlockSettings.copy(Blocks.CRIMSON_PLANKS)));
-    public static final Block CRIMSON_DIAGONAL_TIMBER_FRAME = register("crimson_diagonal_timber_frame", new OrientableBlockBase(FabricBlockSettings.copy(Blocks.CRIMSON_PLANKS)));
-    public static final Block CRIMSON_CROSS_TIMBER_FRAME = register("crimson_cross_timber_frame", new Block(FabricBlockSettings.copy(Blocks.CRIMSON_PLANKS)));
-    public static final Block BAMBOO_TIMBER_FRAME = register("bamboo_timber_frame", new Block(FabricBlockSettings.copy(BAMBOO_PLANKS)));
-    public static final Block BAMBOO_DIAGONAL_TIMBER_FRAME = register("bamboo_diagonal_timber_frame", new OrientableBlockBase(FabricBlockSettings.copy(BAMBOO_PLANKS)));
-    public static final Block BAMBOO_CROSS_TIMBER_FRAME = register("bamboo_cross_timber_frame", new Block(FabricBlockSettings.copy(BAMBOO_PLANKS)));
-    public static final Block CHARRED_TIMBER_FRAME = register("charred_timber_frame", new Block(FabricBlockSettings.copy(CHARRED_PLANKS)));
-    public static final Block CHARRED_DIAGONAL_TIMBER_FRAME = register("charred_diagonal_timber_frame", new OrientableBlockBase(FabricBlockSettings.copy(CHARRED_PLANKS)));
-    public static final Block CHARRED_CROSS_TIMBER_FRAME = register("charred_cross_timber_frame", new Block(FabricBlockSettings.copy(CHARRED_PLANKS)));
-    public static final Block WHITE_OAK_TIMBER_FRAME = register("white_oak_timber_frame", new Block(FabricBlockSettings.copy(WHITE_OAK_PLANKS)));
-    public static final Block WHITE_OAK_DIAGONAL_TIMBER_FRAME = register("white_oak_diagonal_timber_frame", new OrientableBlockBase(FabricBlockSettings.copy(WHITE_OAK_PLANKS)));
-    public static final Block WHITE_OAK_CROSS_TIMBER_FRAME = register("white_oak_cross_timber_frame", new Block(FabricBlockSettings.copy(WHITE_OAK_PLANKS)));
 
     // Small Hedges
     public static final Block OAK_SMALL_HEDGE = registerSmallHedge("oak_small_hedge", Blocks.OAK_LEAVES);
@@ -642,9 +577,6 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block BLUESTONE_PRESSURE_PLATE = registerPressurePlate(PressurePlateBlock.ActivationRule.MOBS, BSSWTypes.BLUESTONE.block);
     public static final Block POLISHED_NETHERRACK_PRESSURE_PLATE = registerPressurePlate(PressurePlateBlock.ActivationRule.MOBS, BSSTypes.POLISHED_NETHERRACK.block);
     public static final Block POLISHED_END_STONE_PRESSURE_PLATE = registerPressurePlate(PressurePlateBlock.ActivationRule.MOBS, BSSTypes.POLISHED_END_STONE.block);
-    public static final Block BAMBOO_PRESSURE_PLATE = registerPressurePlate(PressurePlateBlock.ActivationRule.EVERYTHING, BAMBOO_PLANKS);
-    public static final Block CHARRED_PRESSURE_PLATE = registerPressurePlate(PressurePlateBlock.ActivationRule.EVERYTHING, CHARRED_PLANKS);
-    public static final Block WHITE_OAK_PRESSURE_PLATE = registerPressurePlate(PressurePlateBlock.ActivationRule.EVERYTHING, WHITE_OAK_PLANKS);
     public static final Block POLISHED_BASALT_PRESSURE_PLATE = registerPressurePlate(PressurePlateBlock.ActivationRule.MOBS, Blocks.POLISHED_BASALT);
     public static final Block POLISHED_DEEPSLATE_PRESSURE_PLATE = registerPressurePlate(PressurePlateBlock.ActivationRule.MOBS, Blocks.POLISHED_DEEPSLATE);
     public static final Block POLISHED_TUFF_PRESSURE_PLATE = registerPressurePlate(PressurePlateBlock.ActivationRule.MOBS, BSSTypes.POLISHED_TUFF.block);
@@ -658,9 +590,6 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final Block BLUESTONE_BUTTON = registerStoneButton(BSSWTypes.BLUESTONE.block);
     public static final Block POLISHED_NETHERRACK_BUTTON = registerStoneButton(BSSTypes.POLISHED_NETHERRACK.block);
     public static final Block POLISHED_END_STONE_BUTTON = registerStoneButton(BSSTypes.POLISHED_END_STONE.block);
-    public static final Block BAMBOO_BUTTON = registerRedstone("bamboo_button", new WoodenButtonBase(FabricBlockSettings.copy(Blocks.OAK_PLANKS).noCollision()));
-    public static final Block CHARRED_BUTTON = registerRedstone("charred_button", new WoodenButtonBase(FabricBlockSettings.copy(CHARRED_PLANKS).noCollision()));
-    public static final Block WHITE_OAK_BUTTON = registerRedstone("white_oak_button", new WoodenButtonBase(FabricBlockSettings.copy(WHITE_OAK_PLANKS).noCollision()));
     public static final Block POLISHED_BASALT_BUTTON = registerStoneButton(Blocks.POLISHED_BASALT);
     public static final Block POLISHED_DEEPSLATE_BUTTON = registerStoneButton(Blocks.POLISHED_DEEPSLATE);
     public static final Block POLISHED_TUFF_BUTTON = registerStoneButton(BSSTypes.POLISHED_TUFF.block);
@@ -744,9 +673,9 @@ public class BlockusBlocks extends BlocksRegistration {
     public static final BarrelBlockBase DARK_OAK_BARREL = new BarrelBlockBase("dark_oak_barrel", Blocks.DARK_OAK_PLANKS.getDefaultMapColor());
     public static final BarrelBlockBase CRIMSON_BARREL = new BarrelBlockBase("crimson_barrel", Blocks.CRIMSON_PLANKS.getDefaultMapColor());
     public static final BarrelBlockBase WARPED_BARREL = new BarrelBlockBase("warped_barrel", Blocks.WARPED_PLANKS.getDefaultMapColor());
-    public static final BarrelBlockBase WHITE_OAK_BARREL = new BarrelBlockBase("white_oak_barrel", WHITE_OAK_PLANKS.getDefaultMapColor());
-    public static final BarrelBlockBase BAMBOO_BARREL = new BarrelBlockBase("bamboo_barrel", BAMBOO_PLANKS.getDefaultMapColor());
-    public static final BarrelBlockBase CHARRED_BARREL = new BarrelBlockBase("charred_barrel", CHARRED_PLANKS.getDefaultMapColor());
+    public static final BarrelBlockBase WHITE_OAK_BARREL = new BarrelBlockBase("white_oak_barrel", WoodTypesB.WHITE_OAK.planks.getDefaultMapColor());
+    public static final BarrelBlockBase BAMBOO_BARREL = new BarrelBlockBase("bamboo_barrel", WoodTypesB.BAMBOO.planks.getDefaultMapColor());
+    public static final BarrelBlockBase CHARRED_BARREL = new BarrelBlockBase("charred_barrel", WoodTypesNB.CHARRED.planks.getDefaultMapColor());
 
     public static final BlockEntityType<WoodenBarrelBlockEntity> WOODEN_BARREL = registerBe("wooden_barrel", FabricBlockEntityTypeBuilder.create(WoodenBarrelBlockEntity::new, OAK_BARREL, BIRCH_BARREL, JUNGLE_BARREL, ACACIA_BARREL, DARK_OAK_BARREL, CRIMSON_BARREL, WARPED_BARREL, WHITE_OAK_BARREL, BAMBOO_BARREL, CHARRED_BARREL));
 

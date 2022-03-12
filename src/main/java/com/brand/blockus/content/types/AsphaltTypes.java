@@ -41,9 +41,9 @@ public class AsphaltTypes {
 
         Block.Settings blockSettings = FabricBlockSettings.of(Material.STONE, color).strength(1.5f, 6.0f).requiresTool();
 
-        this.block = BlocksRegistration.registerAsphalt(type2, new AsphaltBlock(FabricBlockSettings.copyOf(blockSettings)));
-        this.slab = BlocksRegistration.registerAsphalt(type2 + "_slab", new AsphaltSlab(FabricBlockSettings.copyOf(blockSettings)));
-        this.stairs = BlocksRegistration.registerAsphalt(type2 + "_stairs", new AsphaltStairs(block.getDefaultState(), FabricBlockSettings.copyOf(blockSettings)));
+        this.block = BlocksRegistration.register(type2, new AsphaltBlock(blockSettings));
+        this.slab = BlocksRegistration.register(type2 + "_slab", new AsphaltSlab(FabricBlockSettings.copyOf(block)));
+        this.stairs = BlocksRegistration.register(type2 + "_stairs", new AsphaltStairs(block.getDefaultState(), FabricBlockSettings.copyOf(block)));
 
         LIST.add(this);
     }

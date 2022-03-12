@@ -1,9 +1,10 @@
 package com.brand.blockus.data.provider;
 
 import com.brand.blockus.content.BlockusBlocks;
-import com.brand.blockus.content.BlockusBlocks;
 import com.brand.blockus.content.types.BSSTypes;
 import com.brand.blockus.content.types.BSSWTypes;
+import com.brand.blockus.content.types.WoodTypesB;
+import com.brand.blockus.content.types.WoodTypesNB;
 import com.brand.blockus.tag.BlockusBlockTags;
 import com.brand.blockus.tag.BlockusItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -88,8 +89,8 @@ public class BlockusItemTagProvider extends FabricTagProvider.ItemTagProvider {
             .add(Items.JUNGLE_PLANKS)
             .add(Items.ACACIA_PLANKS)
             .add(Items.DARK_OAK_PLANKS)
-            .add(BlockusBlocks.BAMBOO_PLANKS.asItem())
-            .add(BlockusBlocks.WHITE_OAK_PLANKS.asItem());
+            .add(WoodTypesB.BAMBOO.planks.asItem())
+            .add(WoodTypesB.WHITE_OAK.planks.asItem());
 
         this.copy(new Identifier("c", "planks_that_burn"));
 
@@ -212,9 +213,9 @@ public class BlockusItemTagProvider extends FabricTagProvider.ItemTagProvider {
         this.copy(BlockTags.WOODEN_BUTTONS, ItemTags.WOODEN_BUTTONS);
 
         this.getOrCreateTagBuilder(ItemTags.WOODEN_DOORS)
-            .add(BlockusBlocks.BAMBOO_DOOR.asItem())
-            .add(BlockusBlocks.CHARRED_DOOR.asItem())
-            .add(BlockusBlocks.WHITE_OAK_DOOR.asItem());
+            .add(WoodTypesB.BAMBOO.door.asItem())
+            .add(WoodTypesNB.CHARRED.door.asItem())
+            .add(WoodTypesB.WHITE_OAK.door.asItem());
 
         this.copy(BlockTags.WOODEN_FENCES, ItemTags.WOODEN_FENCES);
 
@@ -225,9 +226,9 @@ public class BlockusItemTagProvider extends FabricTagProvider.ItemTagProvider {
         this.copy(BlockTags.WOODEN_STAIRS, ItemTags.WOODEN_STAIRS);
 
         this.getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS)
-            .add(BlockusBlocks.BAMBOO_TRAPDOOR.asItem())
-            .add(BlockusBlocks.CHARRED_TRAPDOOR.asItem())
-            .add(BlockusBlocks.WHITE_OAK_TRAPDOOR.asItem());
+            .add(WoodTypesB.BAMBOO.trapdoor.asItem())
+            .add(WoodTypesNB.CHARRED.trapdoor.asItem())
+            .add(WoodTypesB.WHITE_OAK.trapdoor.asItem());
 
         this.copy(BlockTags.WOOL, ItemTags.WOOL);
 

@@ -119,8 +119,6 @@ public class BSSWTypes {
     public final Block base;
 
     private BSSWTypes(String type, Block base, Block.Settings blockSettings) {
-        String replace = type.replace("lava_polished_blackstone_bricks", "lava_polished_blackstone").replace("bricks", "brick").replace("tiles", "tile").replace("_block", "");
-
         this.base = base;
 
         ItemGroup group = Blockus.BLOCKUS_BUILDING_BLOCKS;

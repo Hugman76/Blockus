@@ -13,15 +13,6 @@ import net.minecraft.util.registry.Registry;
 
 public class BlockusItems {
 
-    public static final Item BAMBOO_SIGN = registerSign(BlockusBlocks.BAMBOO_SIGN, BlockusBlocks.BAMBOO_WALL_SIGN);
-    public static final Item BAMBOO_BOAT = registerBoat("bamboo_boat", "bamboo");
-
-    public static final Item CHARRED_SIGN = registerSign(BlockusBlocks.CHARRED_SIGN, BlockusBlocks.CHARRED_WALL_SIGN);
-    public static final Item CHARRED_BOAT = registerBoat("charred_boat", "charred");
-
-    public static final Item WHITE_OAK_SIGN = registerSign(BlockusBlocks.WHITE_OAK_SIGN, BlockusBlocks.WHITE_OAK_WALL_SIGN);
-    public static final Item WHITE_OAK_BOAT = registerBoat("white_oak_boat", "white_oak");
-
     public static final Item RAINBOW_PETAL = register("rainbow_petal", new Item(new Item.Settings().maxCount(64).group(ItemGroup.MATERIALS)));
 
 

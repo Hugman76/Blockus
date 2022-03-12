@@ -3,6 +3,8 @@ package com.brand.blockus.data.family;
 import com.brand.blockus.content.BlockusBlocks;
 import com.brand.blockus.content.types.BSSTypes;
 import com.brand.blockus.content.types.BSSWTypes;
+import com.brand.blockus.content.types.WoodTypesB;
+import com.brand.blockus.content.types.WoodTypesNB;
 import com.google.common.collect.Maps;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -52,9 +54,9 @@ public class BlockusBlockFamilies {
 
     static {
         // Woods
-        WHITE_OAK = register(BlockusBlocks.WHITE_OAK_PLANKS).button(BlockusBlocks.WHITE_OAK_BUTTON).fence(BlockusBlocks.WHITE_OAK_FENCE).fenceGate(BlockusBlocks.WHITE_OAK_FENCE_GATE).pressurePlate(BlockusBlocks.WHITE_OAK_PRESSURE_PLATE).sign(BlockusBlocks.WHITE_OAK_SIGN, BlockusBlocks.WHITE_OAK_WALL_SIGN).slab(BlockusBlocks.WHITE_OAK_SLAB).stairs(BlockusBlocks.WHITE_OAK_STAIRS).door(BlockusBlocks.WHITE_OAK_DOOR).trapdoor(BlockusBlocks.WHITE_OAK_TRAPDOOR).group("wooden").unlockCriterionName("has_planks").build();
-        CHARRED = register(BlockusBlocks.CHARRED_PLANKS).button(BlockusBlocks.CHARRED_BUTTON).fence(BlockusBlocks.CHARRED_FENCE).fenceGate(BlockusBlocks.CHARRED_FENCE_GATE).pressurePlate(BlockusBlocks.CHARRED_PRESSURE_PLATE).sign(BlockusBlocks.CHARRED_SIGN, BlockusBlocks.CHARRED_WALL_SIGN).slab(BlockusBlocks.CHARRED_SLAB).stairs(BlockusBlocks.CHARRED_STAIRS).door(BlockusBlocks.CHARRED_DOOR).trapdoor(BlockusBlocks.CHARRED_TRAPDOOR).group("wooden").unlockCriterionName("has_planks").build();
-        BAMBOO = register(BlockusBlocks.BAMBOO_PLANKS).button(BlockusBlocks.BAMBOO_BUTTON).fence(BlockusBlocks.BAMBOO_FENCE).fenceGate(BlockusBlocks.BAMBOO_FENCE_GATE).pressurePlate(BlockusBlocks.BAMBOO_PRESSURE_PLATE).sign(BlockusBlocks.BAMBOO_SIGN, BlockusBlocks.BAMBOO_WALL_SIGN).slab(BlockusBlocks.BAMBOO_SLAB).stairs(BlockusBlocks.BAMBOO_STAIRS).door(BlockusBlocks.BAMBOO_DOOR).trapdoor(BlockusBlocks.BAMBOO_TRAPDOOR).group("wooden").unlockCriterionName("has_planks").build();
+        WHITE_OAK = register(WoodTypesB.WHITE_OAK.planks).button(WoodTypesB.WHITE_OAK.button).fence(WoodTypesB.WHITE_OAK.fence).fenceGate(WoodTypesB.WHITE_OAK.fence_gate).pressurePlate(WoodTypesB.WHITE_OAK.pressure_plate).sign(WoodTypesB.WHITE_OAK.standing_sign, WoodTypesB.WHITE_OAK.wall_sign).slab(WoodTypesB.WHITE_OAK.slab).stairs(WoodTypesB.WHITE_OAK.stairs).door(WoodTypesB.WHITE_OAK.door).trapdoor(WoodTypesB.WHITE_OAK.trapdoor).group("wooden").unlockCriterionName("has_planks").build();
+        CHARRED = register(WoodTypesNB.CHARRED.planks).button(WoodTypesNB.CHARRED.button).fence(WoodTypesNB.CHARRED.fence).fenceGate(WoodTypesNB.CHARRED.fence_gate).pressurePlate(WoodTypesNB.CHARRED.pressure_plate).sign(WoodTypesNB.CHARRED.standing_sign, WoodTypesNB.CHARRED.wall_sign).slab(WoodTypesNB.CHARRED.slab).stairs(WoodTypesNB.CHARRED.stairs).door(WoodTypesNB.CHARRED.door).trapdoor(WoodTypesNB.CHARRED.trapdoor).group("wooden").unlockCriterionName("has_planks").build();
+        BAMBOO = register(WoodTypesB.BAMBOO.planks).button(WoodTypesB.BAMBOO.button).fence(WoodTypesB.BAMBOO.fence).fenceGate(WoodTypesB.BAMBOO.fence_gate).pressurePlate(WoodTypesB.BAMBOO.pressure_plate).sign(WoodTypesB.BAMBOO.standing_sign, WoodTypesB.BAMBOO.wall_sign).slab(WoodTypesB.BAMBOO.slab).stairs(WoodTypesB.BAMBOO.stairs).door(WoodTypesB.BAMBOO.door).trapdoor(WoodTypesB.BAMBOO.trapdoor).group("wooden").unlockCriterionName("has_planks").build();
 
         // Stone, Andesite, Diorite, Granite, Dripstone, Tuff, Deepslate, Blackstone & Basalt
         STONE = register(Blocks.STONE).door(BlockusBlocks.STONE_DOOR).trapdoor(BlockusBlocks.STONE_TRAPDOOR).build();

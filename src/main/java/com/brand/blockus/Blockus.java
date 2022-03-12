@@ -1,25 +1,18 @@
 package com.brand.blockus;
 
-import com.brand.blockus.blocks.blockitems.SpeedBlockItem;
 import com.brand.blockus.compatibility.content.BlockusColumnBlocks;
 import com.brand.blockus.compatibility.content.promenade.BlockusPromenadeBlocks;
 import com.brand.blockus.content.BlockusBlocks;
 import com.brand.blockus.content.BlockusItems;
-import com.brand.blockus.content.types.AsphaltTypes;
-import com.brand.blockus.content.types.BSSTypes;
-import com.brand.blockus.content.types.BSSWTypes;
+import com.brand.blockus.content.types.*;
 import com.brand.blockus.world.BlockusConfiguredFeatures;
 import com.google.common.reflect.Reflection;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.block.Block;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,6 +31,12 @@ public class Blockus implements ModInitializer {
         Reflection.initialize(BSSTypes.class);
         Reflection.initialize(BSSWTypes.class);
         Reflection.initialize(AsphaltTypes.class);
+        Reflection.initialize(WoodTypesB.class);
+        Reflection.initialize(WoodTypesNB.class);
+        Reflection.initialize(TimberFrameTypesB.class);
+        Reflection.initialize(TimberFrameTypesNB.class);
+
+
 
         Reflection.initialize(BlockusBlocks.class);
         Reflection.initialize(BlockusItems.class);
